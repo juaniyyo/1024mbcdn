@@ -20,3 +20,15 @@ handlers:
 - url: /.*
   static_files: index.html
   upload: index.html
+
+- url: /(favicon\.ico|robots\.txt)
+  static_files: /\1
+  upload: imagenes/(.*)
+  expiration: '1d'
+- url: /.*
+  script: main.app
+
+builtins:
+- deferred: on
+
+
