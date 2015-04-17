@@ -1,1 +1,1 @@
-appcfg.py update /Users/1024mbits/GitHub/1024mbcdn
+appcfg.py update --no_cookies /Users/1024mbits/GitHub/1024mbcdn
