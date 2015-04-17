@@ -1,0 +1,21 @@
+application: 1024mbcdn
+version: 1
+runtime: python 
+api_version: 1
+
+handlers:
+- url: /css
+  static_dir: stylesheet
+
+- url: /imagenes
+  static_dir: imagenes
+
+- url: /files
+  static_dir: files
+
+- url: /js
+  static_dir: javascripts
+
+- url: /.*
+  static_files: index.html
+  upload: index.html
