@@ -19,7 +19,7 @@ import re
 import urllib
 import webapp2
 
-WEBSITE = 'https://blueimp.github.io/jQuery-File-Upload/'
+WEBSITE = 'https://1024mbits.github.io/'
 MIN_FILE_SIZE = 1  # bytes
 MAX_FILE_SIZE = 5000000  # bytes
 IMAGE_TYPES = re.compile('image/(gif|p?jpeg|(x-)?png)')
@@ -31,9 +31,6 @@ EXPIRATION_TIME = 300  # seconds
 def cleanup(blob_keys):
     blobstore.delete(blob_keys)
 
-class MainHandler(webapp2.RequestHandler):
-    def get(self):
-        self.response.write('1024mbits CDN')
 
 class UploadHandler(webapp2.RequestHandler):
 
@@ -168,7 +165,6 @@ app = webapp2.WSGIApplication(
     [
         ('/', UploadHandler),
         ('/([^/]+)/([^/]+)', DownloadHandler)
-        ('/', MainHandler)
     ],
     debug=True
 )

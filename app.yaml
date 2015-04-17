@@ -1,34 +1,16 @@
 application: cdn1024mb
 version: 1
-runtime: python27 
+runtime: python27
 api_version: 1
 threadsafe: true
-
-handlers:
-- url: /css
-  static_dir: stylesheet
-
-- url: /imagenes
-  static_dir: imagenes
-
-- url: /files
-  static_dir: files
-
-- url: /js
-  static_dir: javascripts
-
-- url: /.*
-  static_files: index.html
-  upload: index.html
-
-- url: /(favicon\.ico|robots\.txt)
-  static_files: /\1
-  upload: imagenes/(.*)
-  expiration: '1d'
-- url: /.*
-  script: main.app
 
 builtins:
 - deferred: on
 
-
+handlers:
+- url: /(favicon\.ico|robots\.txt)
+  static_files: static/\1
+  upload: static/(.*)
+  expiration: '1d'
+- url: /.*
+  script: main.app
